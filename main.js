@@ -1,7 +1,7 @@
 var start = document.getElementById('start');
 var stop = document.getElementById('stop');
 var reset = document.getElementById('reset');
-
+//commentaire test nouvelle branche
 var wm = document.getElementById('w_minutes');
 var ws = document.getElementById('w_seconds');
 

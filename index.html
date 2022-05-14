@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Martials arts timer</title>
+</head>
+<body>
+    <h1>MARTIAL ARTS TIMER</h1>
+    <div id="container">
+        <p id="work" class="label">Time</p><p id="break" class="label">Break</p><p id="cycles" class="label">Round</p>
+        <!--Work Timer-->
+        <div id="work-timer" class="timer">
+            <p id="w_minutes">3</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+        </div>
+
+        <!--Cycle Counter-->
+        <p id="counter" class="timer">0</p>
+
+        <!--Break Timer-->
+        <div id="break-timer" class="timer">
+            <p id="b_minutes">1</p><p class="semicolon">:</p><p id="b_seconds">00</p>
+        </div>
+        <button id="start" class="btn">Start</button>
+        <button id="stop" class="btn">Pause</button>
+        <button id="reset" class="btn">Reset</button>
+    </div>
+</body>
+</html>
+
+
+
+<progress
+        max="180"
+        value="180"
+        class="progress progress--rest"
+        id="progressBar"
+        ></progress>

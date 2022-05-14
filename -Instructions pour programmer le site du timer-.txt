@@ -1,0 +1,16 @@
+- Faire plusieurs copies avec des temps prédifinis (ex: 3'/1', 6'/1',etc...)
+- Faire un index.html qui renvoie vers les différents timers : penser au href (cf [mon site en cv].
+penser à une disposition en flex.
+
+
+-C'est déja pas mal mdr:)
+
+
+				------Pbs à noter------
+
+
+1) La barre de progression ne se met pas en pause, quand j'appuie sur le bouton pause.(ni pour le reset)
+2) Le texte du haut n'affiche pas la police que je veux.
+3) La barre de progression se réinitialise toutes les minutes.
+4) Je voudrai descendre la barre de progression afin qu'elle soit moins collée au <container>.
+5) Il manque le bruit pour annoncer la fin du round.

@@ -25,13 +25,23 @@ let timerFormButton = document.getElementById('form-setting-timer')
 let boxing_bell = new Audio("sound/boxing_bell.mp3");
 
 let whistle = new Audio("sound/whistle_referee.mp3");
+
+let clap = new Audio("sound/woodclapping_x2.mp3")
 //store a reference to a timer variable
 let intervalChecker;
+let breakInterval;
 
 // FUNCTION
 
 
 function Timer() {
+
+    if (breakInterval){
+        return;
+    }
+    if (minuteTimer.innerText <= 0 && roundCounter.innerText <= 0 && secondeTimer.innerText === "10"  ){
+        clap.play()
+    }
     if (minuteTimer.innerText <= 0 && roundCounter.innerText <= 0 && (secondeTimer.innerText <= 0 || secondeTimer.innerText === "00")){
         resetAll()
         return
@@ -40,6 +50,7 @@ function Timer() {
         roundCounter.innerText--
         minuteTimer.innerText = minuteInput.value;
         secondeTimer.innerText = secondeInput.value;
+        breakerTimer();
     }
     if(secondeTimer.innerText === "00" || secondeTimer.innerText === "0" && minuteTimer.innerText > 0){
         minuteTimer.innerText--
@@ -49,13 +60,33 @@ function Timer() {
     }
 }
 
+function breakTime(){
+    clearInterval(intervalChecker)
+    if ((breakSeconde.innerText === "00" || breakSeconde.innerText === "0") && breakMinute.innerText <= 0 && roundCounter.innerText < 0){
+        stopBreakInterval()
+        return
+    }
+    if (breakSeconde.innerText === "00" || breakSeconde.innerText === "0" && breakMinute.innerText > 0){
+        breakMinute.innerText--
+    }else{
+        breakSeconde.innerText--
+    }
+}
 
 function playBell() {
     boxing_bell.play().then(() => {
-      intervalChecker =  setInterval(Timer, 1000)
+      checkerTimer();
     });
 }
 
+
+function checkerTimer(){
+    intervalChecker =  setInterval(Timer, 1000)
+}
+
+function breakerTimer(){
+    setInterval(breakTime, 1000)
+}
 function displayForm() {
     container.classList.remove('hidden')
 }
@@ -82,7 +113,20 @@ function stopTimer() {
 }
 
 function startTime(){
+    if (intervalChecker){
+            return
+    }
+    checkerTimer()
     Timer()
+}
+function stopBreakInterval(){
+    clearInterval(breakInterval)
+    breakInterval = undefined;
+    startTime()
+}
+
+function startBreakInterval(){
+
 }
 
 // à revoir
@@ -94,7 +138,7 @@ function timerSetting() {
         roundCounter.innerText = roundInput.value;
 
         breakMinute.innerText = breakMinuteInput.value;
-        breakSecondeInput.innerText = breakSeconde.value;
+        breakSeconde.innerText = breakSecondeInput.value;
 
         closeForm();
         playBell();

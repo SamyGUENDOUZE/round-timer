@@ -5,32 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="main.js" defer></script>
     <title>Martials arts timer</title>
 </head>
 <body>
-    <h1>MARTIAL ARTS TIMER</h1>
-    <div id="container">
-        <p id="work" class="label">Time</p><p id="break" class="label">Break</p><p id="cycles" class="label">Round</p>
-        <!--Work Timer-->
-        <div id="work-timer" class="timer">
-            <p id="w_minutes">3</p><p class="semicolon">:</p><p id="w_seconds">00</p>
-        </div>
-
-        <!--Cycle Counter-->
-        <p id="counter" class="timer">0</p>
-
-        <!--Break Timer-->
-        <div id="break-timer" class="timer">
-            <p id="b_minutes">1</p><p class="semicolon">:</p><p id="b_seconds">00</p>
-        </div>
-        <button id="start" class="btn">Start</button>
-        <button id="stop" class="btn">Pause</button>
-        <button id="reset" class="btn">Reset</button>
+<h1>MARTIAL ARTS TIMER</h1>
+<div id="container">
+    <p id="work" class="label">Time</p>
+    <p id="break" class="label">Break</p>
+    <p id="cycles" class="label">Round</p>
+    <!--Work Timer-->
+    <div id="work-timer" class="timer">
+        <p id="w_minutes">0</p>
+        <p class="semicolon">:</p>
+        <p id="w_seconds">00</p>
     </div>
+
+    <!--Cycle Counter-->
+    <p id="counter" class="timer">0</p>
+
+    <!--Break Timer-->
+    <div id="break-timer" class="timer">
+        <p id="b_minutes">0</p>
+        <p class="semicolon">:</p>
+        <p id="b_seconds">00</p>
+    </div>
+    <button id="start" class="btn">Start</button>
+    <button id="stop" class="btn">Pause</button>
+    <button id="reset" class="btn">Reset</button>
+    <button id="setting" class="btn">setting</button>
+</div>
+<div class="shadow-overlay-container hidden" id="shadow-container">
+    <div class="shadow-sub-container">
+        <div class="shadow-form-container">
+            <i class="fa-solid fa-xmark fa-xl" id="close-icon"></i>
+            <h2> Durée souhaitée </h2>
+            <div class="timer-detail">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>Veuillez renseigner dans les champs qui correspond les valeurs attendu. <br> les champs avec * sont
+                    obligatoire. </p>
+            </div>
+            <div class="input-timer">
+                <label>Durée des round ( en minute / seconde ) * </label>
+                <div class="minute-seconde-input">
+                    <label for="timer-minute"></label><input type="number" id="timer-minute" min="0" max="60"
+                                                             onkeydown="return false" value="0" name="time"> :
+                    <label for="timer-seconde"></label><input type="number" id="timer-seconde" min="00" max="59"
+                                                              onkeydown="return false" value="00" name="time">
+                </div>
+                <label> Nombre de round *</label>
+                <div class="minute-seconde-input">
+                    <label for="minute"></label><input type="number" id="round-input" min="0" max="60"
+                                                       onkeydown="return false" value="0" name="time">
+                </div>
+
+                <label>Temps de pause entre les round * </label>
+                <div class="minute-seconde-input">
+                    <label for="break-minute"></label><input type="number" id="break-minute-input" min="0" max="60"
+                                                             onkeydown="return false" value="0" name="time"> :
+                    <label for="break-seconde"></label><input type="number" id="break-seconde-input" min="00" max="59"
+                                                              onkeydown="return false" value="00" name="time">
+                </div>
+            </div>
+            <button id="form-setting-timer" class="form-btn">Enregistrer</button>
+        </div>
+    </div>
+</div>
+<div class="fa"></div>
 </body>
 </html>
-
 
 
 <progress
@@ -38,4 +84,4 @@
         value="180"
         class="progress progress--rest"
         id="progressBar"
-        ></progress>
+></progress>

@@ -16,6 +16,18 @@ h1 {
     text-align: center;
     }
 
+h2{
+    font-weight: lighter;
+    font-family: "Roboto Light",sans-serif;
+}
+
+
+#close-icon{
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    cursor: pointer;
+}
 #container {
     height: 200px;
     width: 700px;
@@ -126,9 +138,83 @@ p {
     -webkit-appearance: none;
 }
 
+.hidden {
+    display: none;
+}
+
+/* container when the button setting is press */
+.shadow-overlay-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    left: 0;
+    top: 0;
+}
+
+.shadow-sub-container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shadow-form-container{
+    position: fixed;
+    align-items: center;
+    max-width: 30%;
+    padding: 25px 100px;
+    background:  #f8f9fb;
+}
+.shadow-form-container h2{
+    text-align: center;
+
+}
+
+.timer-detail{
+    display: flex;
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+.timer-detail p{
+    font-size: 12px;
+    margin: 0 15px;
+    font-family: sans-serif;
+}
+.minute-seconde-input{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+
+#form-setting-timer{
+    padding: 5px;
+    background: white;
+    border: solid 1px lightgray;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+#form-setting-timer:hover{
+    background: gray;!important;
+}
+
+label{
+    font-size: 12px;
+    margin: 0 15px;
+    font-family: sans-serif;
+}
 .progress,
 .progress::-webkit-progress-bar {
     background-color: #ed9809;
+}
+
+input{
+    width: 30px;
+    height: 15px;
 }
 
 .progress--set::-webkit-progress-value {
